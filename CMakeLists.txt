@@ -50,7 +50,7 @@ FetchContent_MakeHermetic(
   HERMETIC_BUILD_SYSTEM cmake
 )
 
-HermeticFetchContent_MakeAvailableAtBuildTime("mathlib")
+HermeticFetchContent_MakeAvailableAtConfigureTime("mathlib")
 
 
 add_library(More_MathFunctions STATIC More_MathFunctions.cxx)
@@ -77,11 +77,3 @@ install(EXPORT More_MathFunctionsTargets
         NAMESPACE More_MathFunctions::
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/More_MathFunctions
 )
-
-
-
-
-
-
-
-##"MathFunctions.h", "MathFunctionscbrt.h"
