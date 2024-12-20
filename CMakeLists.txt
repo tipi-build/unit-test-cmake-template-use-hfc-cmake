@@ -39,6 +39,8 @@ if(NOT hfc_included)
   include(HermeticFetchContent)
 endif()
 
+HermeticFetchContent_SetBaseDir("${SET_BASE_DIR_FROM_UP}")
+
 FetchContent_Declare(
   "mathlib"
   GIT_REPOSITORY "https://github.com/tipi-build/unit-test-cmake-template-2libs.git"
