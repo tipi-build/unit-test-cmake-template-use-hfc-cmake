@@ -44,7 +44,19 @@ FetchContent_Declare(
   GIT_REPOSITORY "https://github.com/tipi-build/unit-test-cmake-template-2libs.git"
   GIT_TAG "20f983e688fd77961445608d44bc90df15f38e76"
 )
-FetchContent_MakeAvailable(mathlib)
+
+
+FetchContent_MakeHermetic(
+  mathlib
+  HERMETIC_BUILD_SYSTEM cmake
+)
+
+if(HFC_TEST_PROJECT_MAKE_AVAILABLE_AT_BUILDTIME) 
+  HermeticFetchContent_MakeAvailableAtBuildTime(mathlib)
+else()
+  HermeticFetchContent_MakeAvailableAtConfigureTime(mathlib)
+endif()
+
 add_library(More_MathFunctions STATIC More_MathFunctions.cxx)
 
 target_include_directories(More_MathFunctions
