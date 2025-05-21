@@ -71,9 +71,12 @@ install(EXPORT More_MathFunctionsTargets
 )
 
 
+include(hfc_sbom)
 
-
-
-
-
-##"MathFunctions.h", "MathFunctionscbrt.h"
+hfc_generate_sbom(
+  OUTPUT "hfc-sbom.spdx"
+  LICENSE "Proprietary"
+  SUPPLIER "tipi technologies AG"
+  SUPPLIER_URL "https://tipi.build"
+  NO_VERIFY
+)
